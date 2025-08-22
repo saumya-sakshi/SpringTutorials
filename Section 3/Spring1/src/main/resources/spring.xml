@@ -27,8 +27,8 @@
     </bean>
 
 <!--    <bean id="lap2" class="org.example.Laptop"/>-->
-    <bean id="lap1" class="org.example.Laptop" primary="true"/>
-    <bean id="com" class="org.example.Desktop"/>
+    <bean id="com1" class="org.example.Laptop" primary="true"/>
+    <bean id="com2" class="org.example.Desktop" lazy-init="true"/>
 
     <!--Even If we have multiple objects for Laptop but in ref the object with id lap1 will be referred-->
     <!--Even If we have autowire but still used ref with id lap1 then lap1 will be referred-->
@@ -36,6 +36,8 @@
 <!--    if we use in autowire by type then it will be refered by the type of bean-->
 <!--   expected single matching bean but found 2: lap1,com this can be solved by primary=true-->
 <!--    primary works only in case of confusing but if we mention explicitly then it will use that bean-->
+
+<!--    lazy-init="true" will thn allow ioc to create object only when it is first time called.-->
 
 
 </beans>
