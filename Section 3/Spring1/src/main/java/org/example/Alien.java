@@ -8,6 +8,7 @@ public class Alien {
     }
 
     public void setAge(int age) {
+        System.out.println("Setter Called"); //to check if the property in xml is calling setter or not to set inject
         this.age = age;
     }
 

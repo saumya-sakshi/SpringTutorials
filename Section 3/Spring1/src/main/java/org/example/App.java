@@ -29,7 +29,7 @@ public class App {
          */
         Alien  a =(Alien) context.getBean("alien1");
         a.coding();
-        a.setAge(21); // i dont want to assign here i want to inject the value like we do in spring so we will do that in spring.xml
+        //a.setAge(21); // i dont want to assign here i want to inject the value like we do in spring so we will do that in spring.xml
         System.out.println(a.getAge());
 
 
