@@ -17,7 +17,7 @@ public class SpringbootFirstApplication {
 		a.code();
 
 //		Laptop laptop= context.getBean(Laptop.class);
-//		laptop.compile();
+//		laptop.compile(); 
 	}
 
 }
