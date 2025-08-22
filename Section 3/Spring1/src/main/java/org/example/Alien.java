@@ -18,21 +18,21 @@ public class Alien {
      * now 3rd  if we annotate here using {@link ConstructorProperties } and mention the names of var in array
      * we can use it in spring.xml using name attribute and sequence wont matter
      * **/
-    @ConstructorProperties({"age","lap"})
-    public Alien(int age, Laptop lap) {
-        this.age = age;
-        this.lap = lap;
-    }
+//    @ConstructorProperties({"age","lap"})
+//    public Alien(int age, Computer com) {
+//        this.age = age;
+//        this.com = com;
+//    }
 //private Laptop lap = new Laptop();// but we dont want this way we want to inject as we are supposed to do in spring
 
-    private Laptop lap;
+    private Computer com;
 
-    public Laptop getLap() {
-        return lap;
+    public Computer getCom() {
+        return com;
     }
 
-    public void setLap(Laptop lap) {
-        this.lap = lap;
+    public void setCom(Computer com) {
+        this.com = com;
     }
 
     public int getAge() {
@@ -59,6 +59,6 @@ public class Alien {
 
     public void coding (){
         System.out.println("Coding");
-        lap.compile();
+        com.compile();
     }
 }
