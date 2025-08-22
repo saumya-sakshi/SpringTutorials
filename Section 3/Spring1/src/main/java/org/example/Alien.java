@@ -1,8 +1,29 @@
 package org.example;
 
+import java.beans.ConstructorProperties;
+
 public class Alien {
     private int age;
-    //private Laptop lap = new Laptop();// but we dont want this way we want to inject as we are supposed to do in spring
+
+    /**
+     *
+     * @param age
+     * @param lap
+     * if we have this parameterized constructor and in earlier it will give error if we use just one constructor arg in spring.xml
+     * <constructor-arg value="21"/>
+     * <constructor-arg ref="lap1"/>
+     * it checks the sequence and assigns respectively
+     * we can solve this by 1st method - mention the type but again it can cause error if we have multiple var of same type
+     * now 2nd method is index which again use sequence to identify and map the vars
+     * now 3rd  if we annotate here using {@link ConstructorProperties } and mention the names of var in array
+     * we can use it in spring.xml using name attribute and sequence wont matter
+     * **/
+    @ConstructorProperties({"age","lap"})
+    public Alien(int age, Laptop lap) {
+        this.age = age;
+        this.lap = lap;
+    }
+//private Laptop lap = new Laptop();// but we dont want this way we want to inject as we are supposed to do in spring
 
     private Laptop lap;
 
@@ -26,6 +47,15 @@ public class Alien {
     public Alien(){
         //System.out.println("Object Created");
     }
+
+//    public Alien(int age){
+//        this.age=age;
+//        System.out.println("para constructor called");
+//        /**
+//         * now we want to assign value not with the injected setter,
+//         * we want to use this constructor to have value initialized at he time of object creation
+//         */
+//    }
 
     public void coding (){
         System.out.println("Coding");
