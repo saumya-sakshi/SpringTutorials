@@ -5,7 +5,9 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!-- this definition needs to be added for it to be a xml configuration which defines what these beans means-->
 
-<bean id="alien" class="org.example.Alien">
+    <bean id="alien1" class="org.example.Alien" scope="prototype"></bean>
+    <!-- There are different scope for each beans by default it is singleton ie one object will be created -->
+    <!--But if we want different object to be created each time we call the getbean() we can use prototype scope-->
 
-</bean>
+    <bean class="org.example.Laptop"></bean>
 </beans>
