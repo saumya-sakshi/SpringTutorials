@@ -10,6 +10,10 @@
     <!-- But if we want different object to be created each time we call the getbean() we can use prototype scope-->
     <bean id="alien1" class="org.example.Alien" >
         <property name="age" value="21"></property> <!--AGE IS A PROPERTY-->
+
+        <property name="lap" ref="lap1"></property> <!--Lap is a reference to Laptop class so it cant have value-->
     </bean>
-    <bean class="org.example.Laptop"></bean>
+    <bean id="lap1" class="org.example.Laptop"></bean>
+    <bean id="lap2" class="org.example.Laptop"></bean>
+    <!--Even If we have multiple objects for Laptop but in ref the object with id lap1 will be referred-->
 </beans>
