@@ -62,7 +62,11 @@ public class App {
 
 
         /**to avoid typecasting in getbean we can use the follow
-        Alien  obj =context.getBean("alien1",Alien.class);?**/
+       ?**/
+        Alien  obj =context.getBean("alien1",Alien.class);
+//        Desktop dsk = context.getBean(Desktop.class); // it will just search by type
+//
+//        Computer com = context.getBean(Computer.class);
 
 
 
