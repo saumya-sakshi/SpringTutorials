@@ -1,8 +1,16 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.beans.ConstructorProperties;
 
+@Component
 public class Alien {
+
+    @Value("21")
     private int age;
 
     /**
@@ -25,7 +33,18 @@ public class Alien {
 //    }
 //private Laptop lap = new Laptop();// but we dont want this way we want to inject as we are supposed to do in spring
 
+    @Autowired
+    @Qualifier("laptop")
     private Computer com;
+    /**
+     * there are 3 types of autowiring
+     * 1. Field Injection
+     * 2. Constructor Injection
+     * 3. setter injection
+     *
+     * in betweeen Primary and Qualifier - Qualifier has more peference
+     *
+     */
 
     public Computer getCom() {
         return com;
@@ -45,7 +64,7 @@ public class Alien {
     }
 
     public Alien(){
-        System.out.println("Object Created");
+        System.out.println("Alien Object Created");
     }
 
 //    public Alien(int age){
