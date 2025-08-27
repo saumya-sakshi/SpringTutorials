@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -17,13 +18,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping("add")
-	public String add(@RequestParam("num1") int num, int num2, Model model) {
+	public ModelAndView add(@RequestParam("num1") int num, int num2, ModelAndView mv) {
 
 		int result=num+num2+5;
 		System.out.println(result);
-		model.addAttribute("result",result);
+		mv.addObject("result",result);
 //		in result.jsp we cna show data in one way by using this <%= session.getAttribute("result") %>
-		return "result";
+		mv.setViewName("result");
+		return mv;
 	}
 
 }
