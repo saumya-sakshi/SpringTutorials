@@ -4,6 +4,7 @@ package com.telusko.SpringBootWeb1;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +27,20 @@ public class HomeController {
 //		in result.jsp we cna show data in one way by using this <%= session.getAttribute("result") %>
 		mv.setViewName("result");
 		return mv;
+	}
+
+
+	@RequestMapping("addAlien")
+	public String addAlien(@ModelAttribute Alien a) { //@ModalAttribute is optional
+
+
+		return "result";
+	}
+
+
+	@ModelAttribute("course")
+	public String CourseNAme(){
+		return "JAVA";
 	}
 
 }
