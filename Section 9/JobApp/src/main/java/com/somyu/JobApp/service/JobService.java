@@ -14,8 +14,8 @@ public class JobService {
 private JobRepo jobRepo;
 
     public void addJob(JobPost jobPost){
-    jobRepo.addJob(jobPost);
+    jobRepo.save(jobPost);
     }
 
-    public List<JobPost> getAllJobs(){return jobRepo.getAllJobs();}
+    public List<JobPost> getAllJobs(){return jobRepo.findAll();}
 }

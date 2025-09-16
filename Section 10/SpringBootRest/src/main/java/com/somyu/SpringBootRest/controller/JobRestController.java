@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class JobRestController {
@@ -23,7 +24,7 @@ public class JobRestController {
 
     @CrossOrigin
     @GetMapping("jobPosts/{post}")
-    public JobPost jobPost(@PathVariable("post") int post){
+    public Optional<JobPost> jobPost(@PathVariable("post") int post){
         return service.getJob(post);
     }
 
@@ -35,8 +36,8 @@ public class JobRestController {
 
     @CrossOrigin
     @PutMapping("jobPosts")
-    public JobPost updatePost(@RequestBody JobPost post){
-        service.update(post);
+    public Optional<JobPost> updatePost(@RequestBody JobPost post){
+        service.update(post, post.getPostId());
         return service.getJob(post.getPostId());
     }
 
@@ -47,5 +48,11 @@ public class JobRestController {
         service.delete(id);
         return "Job with id " + id+ " successfully Deleted";
 
+    }
+
+    @CrossOrigin
+    @GetMapping("jobPosts/keyword/{keyword}")
+    public  List<JobPost> search(@PathVariable String keyword){
+        return service.search(keyword);
     }
 }
