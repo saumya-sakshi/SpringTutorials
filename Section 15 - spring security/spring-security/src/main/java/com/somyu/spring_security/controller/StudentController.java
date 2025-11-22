@@ -1,6 +1,6 @@
 package com.somyu.spring_security.controller;
 
-import com.somyu.spring_security.entity.Student;
+import com.somyu.spring_security.model.Student;
 import com.somyu.spring_security.repository.StudentRepo;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

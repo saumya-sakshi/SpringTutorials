@@ -1,20 +1,21 @@
-package com.somyu.spring_security.entity;
-
+package com.somyu.spring_security.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+@Entity
+@Table(name = "users")
+public class User {
 
     @Id
-    private int  id;
-    private String name;
-    private String tech;
+    private int id;
+    private String username;
+    private String password;
 }
